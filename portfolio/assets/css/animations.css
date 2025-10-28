@@ -111,36 +111,66 @@
 
 @keyframes floatingParticle {
     0% {
-        transform: translate(0, 0) rotate(0deg);
+        transform: translate(0, 0) scale(1);
         opacity: 0;
     }
-    25% {
+    15% {
         opacity: var(--max-opacity, 0.6);
     }
     50% {
-        transform: translate(var(--x, 100px), var(--y, -100px)) rotate(180deg);
+        transform: translate(var(--x, 100px), var(--y, -100px)) scale(1.15) rotate(180deg);
         opacity: var(--max-opacity, 0.6);
     }
-    75% {
-        opacity: var(--max-opacity, 0.6);
+    85% {
+        opacity: calc(var(--max-opacity, 0.6) * 0.3);
     }
     100% {
-        transform: translate(0, 0) rotate(360deg);
+        transform: translate(0, 0) scale(1) rotate(360deg);
         opacity: 0;
     }
 }
 
 .particle {
     position: fixed;
-    background: var(--particle-color, var(--primary));
+    width: var(--size, 8px);
+    height: var(--size, 8px);
     border-radius: 50%;
+    background: var(--particle-color, rgba(0,255,245,0.9));
     pointer-events: none;
     mix-blend-mode: screen;
+    filter: blur(var(--blur, 1px));
     z-index: 0;
-    animation: floatingParticle var(--duration, 15s) infinite ease-in-out;
-    filter: blur(var(--blur, 0px));
-    width: var(--size, 3px);
-    height: var(--size, 3px);
+    box-shadow:
+        0 0 calc(var(--size, 8px) * 1.5) rgba(255,255,255,0.05),
+        0 0 12px rgba(0,255,245,0.18),
+        inset 0 0 6px rgba(255,255,255,0.06);
+    opacity: 0;
+    animation: floatingParticle var(--duration, 20s) infinite ease-in-out;
+}
+
+/* halo/flare para destacar cada partícula */
+.particle::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(var(--size, 8px) * 3);
+    height: calc(var(--size, 8px) * 3);
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.18), transparent 40%);
+    filter: blur(8px);
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+/* Mantém partículas atrás do conteúdo principal (ajuste no z-index do conteúdo se necessário) */
+.hero-content,
+.about-content,
+.project-grid,
+.certificates-grid {
+    position: relative;
+    z-index: 1;
 }
 
 /* Animações para cards */

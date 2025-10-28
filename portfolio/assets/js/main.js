@@ -62,33 +62,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Função melhorada para criar partículas
     function createParticles() {
-        const particleCount = 25; // Reduzido para melhor performance
-        const colors = ['#00fff5', '#ff00ff', '#64ffda', '#4a4a4a'];
+        const particleCount = 20; // visibilidade equilibrada
+        const colors = ['#00fff5', '#ff00ff', '#64ffda', '#7ee8fa'];
         const body = document.body;
 
-        // Limpa partículas antigas
+        // Remove partículas antigas
         document.querySelectorAll('.particle').forEach(p => p.remove());
 
         for (let i = 0; i < particleCount; i++) {
             const particle = document.createElement('div');
             particle.className = 'particle';
             
-            // Configurações mais suaves
-            const size = Math.random() * 2.5 + 1.5; // Partículas um pouco menores
+            // tamanho e cor
+            const size = Math.random() * 6 + 4; // 4px a 10px
             const color = colors[Math.floor(Math.random() * colors.length)];
             
-            // Propriedades customizadas
+            // propriedades customizadas usadas pelo CSS
             particle.style.setProperty('--size', `${size}px`);
             particle.style.setProperty('--particle-color', color);
-            particle.style.setProperty('--blur', `${Math.random() * 1.5}px`);
-            particle.style.setProperty('--max-opacity', `${Math.random() * 0.3 + 0.1}`); // Mais sutil
-            particle.style.setProperty('--x', `${(Math.random() - 0.5) * 200}px`); // Movimento reduzido
-            particle.style.setProperty('--y', `${(Math.random() - 0.5) * 200}px`);
-            particle.style.setProperty('--duration', `${Math.random() * 15 + 15}s`); // Mais lento
+            particle.style.setProperty('--blur', `${Math.random() * 2 + 0.5}px`);
+            particle.style.setProperty('--max-opacity', `${Math.random() * 0.45 + 0.35}`); // mais visível
+            particle.style.setProperty('--x', `${(Math.random() - 0.5) * 400}px`);
+            particle.style.setProperty('--y', `${(Math.random() - 0.5) * 300}px`);
+            particle.style.setProperty('--duration', `${Math.random() * 18 + 12}s`);
             
-            // Posicionamento inicial mais distribuído
-            particle.style.left = `${Math.random() * 95 + 2.5}vw`; // Evita bordas
-            particle.style.top = `${Math.random() * 95 + 2.5}vh`;
+            // posição inicial (evita ficar colado nas bordas)
+            particle.style.left = `${Math.random() * 88 + 6}vw`;
+            particle.style.top = `${Math.random() * 88 + 6}vh`;
             
             body.appendChild(particle);
         }
@@ -108,7 +108,13 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Inicia as partículas e configura recriação
-    createParticles();
-    setInterval(createParticles, 45000); // Intervalo maior para suavidade
+    // Inicializa partículas ao carregar e recria em redimensionamento/períodos
+    try { createParticles(); } catch (e) { /* fail silently */ }
+    window.addEventListener('resize', () => {
+        // recria com debounce mínimo para evitar churn
+        clearTimeout(window.__particleResizeTimer);
+        window.__particleResizeTimer = setTimeout(createParticles, 200);
+    });
+    // reinicia partículas ocasionalmente para manter movimento
+    setInterval(createParticles, 35000);
 });
