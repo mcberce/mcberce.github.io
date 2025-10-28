@@ -1,0 +1,197 @@
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.slide-up {
+    animation: slideUp 0.5s ease-out;
+}
+
+@keyframes glitch {
+    0% { 
+        transform: translate(0);
+        text-shadow: none;
+    }
+    20% { 
+        transform: translate(-2px, 2px);
+        text-shadow: 2px 0 var(--primary), -2px 0 var(--secondary);
+    }
+    40% { 
+        transform: translate(-2px, -2px);
+        text-shadow: -2px 0 var(--primary), 2px 0 var(--secondary);
+    }
+    60% { 
+        transform: translate(2px, 2px);
+        text-shadow: 2px 2px var(--primary), -2px -2px var(--secondary);
+    }
+    80% { 
+        transform: translate(2px, -2px);
+        text-shadow: none;
+    }
+    100% { 
+        transform: translate(0);
+        text-shadow: none;
+    }
+}
+
+.glitch {
+    position: relative;
+    animation: glitch 1s infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+.typing-text {
+    overflow: hidden;
+    border-right: 3px solid var(--primary);
+    white-space: nowrap;
+    animation: 
+        typing 3.5s steps(40, end),
+        blink-caret .75s step-end infinite;
+    text-shadow: 0 0 8px var(--primary);
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: var(--primary); }
+}
+
+.glowing-border {
+    position: relative;
+}
+
+.glowing-border::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(
+        45deg,
+        var(--primary),
+        var(--secondary),
+        var(--accent)
+    );
+    border-radius: 50%;
+    z-index: -1;
+    animation: border-glow 3s ease-in-out infinite;
+    filter: blur(8px);
+}
+
+@keyframes border-glow {
+    0% { 
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% { 
+        opacity: 0.1;
+        transform: scale(1.02);
+    }
+    100% { 
+        opacity: 0.3;
+        transform: scale(1);
+    }
+}
+
+@keyframes floatingParticle {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0;
+    }
+    25% {
+        opacity: var(--max-opacity, 0.6);
+    }
+    50% {
+        transform: translate(var(--x, 100px), var(--y, -100px)) rotate(180deg);
+        opacity: var(--max-opacity, 0.6);
+    }
+    75% {
+        opacity: var(--max-opacity, 0.6);
+    }
+    100% {
+        transform: translate(0, 0) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.particle {
+    position: fixed;
+    background: var(--particle-color, var(--primary));
+    border-radius: 50%;
+    pointer-events: none;
+    mix-blend-mode: screen;
+    z-index: 0;
+    animation: floatingParticle var(--duration, 15s) infinite ease-in-out;
+    filter: blur(var(--blur, 0px));
+    width: var(--size, 3px);
+    height: var(--size, 3px);
+}
+
+/* Animações para cards */
+.project-card, 
+.certificate-card {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background: linear-gradient(
+        145deg,
+        rgba(17, 34, 64, 0.6),
+        rgba(17, 34, 64, 0.8)
+    );
+    box-shadow: 
+        5px 5px 15px rgba(0, 0, 0, 0.3),
+        -5px -5px 15px rgba(255, 255, 255, 0.02);
+}
+
+.project-card:hover, 
+.certificate-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 
+        8px 8px 20px rgba(0, 0, 0, 0.4),
+        -8px -8px 20px rgba(255, 255, 255, 0.03);
+}
+
+/* Efeito de brilho ao passar o mouse */
+@keyframes cardGlow {
+    0% { 
+        box-shadow: 0 0 5px var(--primary),
+                   0 0 10px var(--primary),
+                   0 0 15px var(--secondary);
+    }
+    50% { 
+        box-shadow: 0 0 10px var(--primary),
+                   0 0 20px var(--primary),
+                   0 0 30px var(--secondary);
+    }
+    100% { 
+        box-shadow: 0 0 5px var(--primary),
+                   0 0 10px var(--primary),
+                   0 0 15px var(--secondary);
+    }
+}
+
+/* Ícones com Efeito Neon */
+.cert-icon {
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 2px var(--primary));
+}
+
+.certificate-card:hover .cert-icon {
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 8px var(--primary));
+    color: var(--primary);
+}

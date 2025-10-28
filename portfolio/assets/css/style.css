@@ -1,0 +1,642 @@
+:root {
+    --primary: #00fff5;
+    --secondary: #ff00ff;
+    --background: #0a192f;
+    --surface: #112240;
+    --text: #e6f1ff;
+    --text-secondary: #8892b0;
+    --accent: #64ffda;
+    --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+}
+
+/* Adicione background com padrão de grid */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(rgba(10, 25, 47, 0.9), rgba(10, 25, 47, 0.9)),
+        linear-gradient(90deg, var(--surface) 1px, transparent 1px) 50% 50% / 20px 20px,
+        linear-gradient(var(--surface) 1px, transparent 1px) 50% 50% / 20px 20px;
+    z-index: -1;
+}
+
+/* Melhorar o efeito glass */
+.glass-effect {
+    background: rgba(17, 34, 64, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+/* Estilizar seções */
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: var(--gradient);
+}
+
+/* Estilização dos Projetos */
+.projects-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    position: relative;
+}
+
+.project-card {
+    min-height: 350px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    background: rgba(17, 34, 64, 0.6);
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gradient);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+    filter: blur(15px);
+}
+
+.project-card:hover {
+    transform: translateY(-10px) scale(1.02);
+}
+
+.project-card:hover::before {
+    opacity: 0.15;
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.tech-tag {
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--accent);
+    transition: all 0.3s ease;
+}
+
+.tech-tag:hover {
+    background: var(--accent);
+    color: var(--background);
+    transform: translateY(-2px);
+}
+
+/* Melhorar cards */
+.project-card, .certificate-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.project-card::after, .certificate-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255, 255, 255, 0.1),
+        transparent
+    );
+    transform: rotate(45deg);
+    transition: all 0.5s;
+    opacity: 0;
+}
+
+.project-card:hover::after, .certificate-card:hover::after {
+    opacity: 1;
+    transform: rotate(45deg) translate(50%, 50%);
+}
+
+/* Adicionar decoração nas seções */
+.about-section::before {
+    content: '<about>';
+    font-family: 'Space Mono', monospace;
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    color: var(--text-secondary);
+    opacity: 0.1;
+    font-size: 1.2rem;
+}
+
+.projects-section::before {
+    content: '<projects>';
+    font-family: 'Space Mono', monospace;
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    color: var(--text-secondary);
+    opacity: 0.1;
+    font-size: 1.2rem;
+}
+
+/* Melhorar espaçamento e layout */
+.about-section, .projects-section, .certificates-section {
+    position: relative;
+    padding: 8rem 5%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Adicionar animação de fundo */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(-45deg, 
+        rgba(0, 255, 245, 0.1), 
+        rgba(255, 0, 255, 0.1), 
+        rgba(100, 255, 218, 0.1));
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    z-index: -1;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1rem 5%;
+    z-index: 1000;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-link {
+    color: var(--text);
+    text-decoration: none;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.name-highlight {
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 3.5rem;
+    margin: 1rem 0;
+}
+
+.btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.primary-btn {
+    background: var(--primary);
+    color: var(--background);
+}
+
+.secondary-btn {
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem 5%;
+}
+
+.project-card {
+    padding: 2rem;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+}
+
+.tech-tag {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    margin-right: 0.5rem;
+}
+
+.certificates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    padding: 2rem 5%;
+}
+
+.certificate-card {
+    position: relative;
+    padding: 2.5rem;
+    text-align: center;
+    transition: all 0.4s ease;
+    z-index: 1;
+    background: rgba(17, 34, 64, 0.6);
+}
+
+.certificate-card::before,
+.certificate-card::after {
+    content: '';
+    position: absolute;
+    border-radius: inherit;
+}
+
+.certificate-card::before {
+    inset: -2px;
+    background: var(--gradient);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+}
+
+.certificate-card::after {
+    inset: 0;
+    background: var(--surface);
+    z-index: -1;
+}
+
+.cert-icon {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.cert-icon::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: var(--gradient);
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0.2;
+    filter: blur(10px);
+    transition: all 0.4s ease;
+}
+
+.certificate-card:hover {
+    transform: translateY(-10px);
+}
+
+.certificate-card:hover::before {
+    opacity: 1;
+}
+
+.certificate-card:hover .cert-icon::after {
+    transform: scale(1.5);
+    opacity: 0.4;
+}
+
+/* Adicionar animação de entrada */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.project-card, .certificate-card {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.project-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.project-card:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+/* Decorações de fundo */
+.certificates-section::before {
+    content: '< />';
+    font-family: 'Space Mono', monospace;
+    position: absolute;
+    font-size: 15rem;
+    right: -2rem;
+    bottom: -2rem;
+    opacity: 0.03;
+    color: var(--primary);
+}
+
+.projects-section::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: var(--primary);
+    filter: blur(150px);
+    opacity: 0.05;
+    bottom: -150px;
+    left: -150px;
+    animation: pulseGlow 5s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+    0%, 100% {
+        opacity: 0.05;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.1;
+        transform: scale(1.2);
+    }
+}
+
+/* Melhorar seção hero */
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: var(--secondary);
+    filter: blur(150px);
+    opacity: 0.2;
+    right: 10%;
+    top: 20%;
+}
+
+/* Adicionar elementos decorativos nas seções */
+.section-decoration {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border: 2px solid var(--primary);
+    opacity: 0.1;
+    z-index: -1;
+}
+
+.about-section .section-decoration {
+    right: 5%;
+    top: 20%;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    animation: morphing 10s linear infinite;
+}
+
+.projects-section .section-decoration {
+    left: 5%;
+    bottom: 20%;
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    animation: morphing 12s linear infinite reverse;
+}
+
+@keyframes morphing {
+    0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+    50% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+    100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
+}
+
+/* Melhorar espaçamento das seções */
+.hero, .about-section, .projects-section, .certificates-section {
+    position: relative;
+    padding: 6rem 5%;
+}
+
+/* Adicionar linhas de conexão entre seções */
+.section-connector {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100px;
+    background: linear-gradient(to bottom, var(--primary), transparent);
+    opacity: 0.2;
+}
+
+/* Animação de typing mais suave */
+.typing-container {
+    display: inline-block;
+    width: fit-content;
+}
+
+.typing-text {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 0;
+    border-right: 3px solid var(--primary);
+    animation: 
+        typing 2.5s steps(30, end) forwards,
+        blink-caret 0.75s step-end infinite;
+    animation-delay: 1s; /* Pequeno delay para começar */
+}
+
+@keyframes typing {
+    from { 
+        width: 0; 
+    }
+    to { 
+        width: 100%;
+    }
+}
+
+@keyframes blink-caret {
+    from, to { 
+        border-color: transparent; 
+    }
+    50% { 
+        border-color: var(--primary); 
+    }
+}
+
+/* Adicione isso para parar a animação após completar */
+.typing-text.completed {
+    border-right: none;
+    animation: none;
+    width: 100%;
+}
+
+/* Prevenir rolagem horizontal */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* Ajustar containers para evitar overflow */
+.container, 
+.hero-content,
+.about-content,
+.projects-grid,
+.certificates-grid {
+    width: 100%;
+    max-width: 100vw;
+    margin: 0 auto;
+    padding: 0 5%;
+    box-sizing: border-box;
+}
+
+/* Ajustar partículas para não causarem overflow */
+.particle {
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.image-container {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    border: 3px solid var(--primary);
+    box-shadow: 0 0 20px rgba(0, 255, 245, 0.3);
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.3s ease;
+}
+
+.image-container:hover img {
+    transform: scale(1.1);
+}
+
+/* Efeito de borda brilhante */
+.image-container::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, var(--primary), var(--secondary));
+    z-index: -1;
+    animation: borderRotate 3s linear infinite;
+}
+
+@keyframes borderRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

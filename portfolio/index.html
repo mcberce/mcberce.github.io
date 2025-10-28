@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio | Desenvolvedor</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Space+Mono&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar glass-effect">
+        <div class="logo">
+            <span class="tech-text">&lt;/&gt;</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#sobre" class="nav-link">Sobre</a></li>
+            <li><a href="#projetos" class="nav-link">Projetos</a></li>
+            <li><a href="#certificados" class="nav-link">Certificados</a></li>
+            <li><a href="#contato" class="nav-link">Contato</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="glitch" data-text="Olá, eu sou">Olá, eu sou</h1>
+                <h2 class="name-highlight">Murilo Berce</h2>
+                <div class="typing-container">
+                    <span class="typing-text">Desenvolvedor Full Stack</span>
+                </div>
+                <div class="cta-buttons">
+                    <a href="#projetos" class="btn primary-btn">Ver Projetos</a>
+                    <a href="#contato" class="btn secondary-btn">Contato</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-container glowing-border">
+                    <img src="images/WhatsApp Image 2025-10-28 at 00.02.26.png" alt="Minha Foto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sobre" class="about-section">
+        <h2 class="section-title">Sobre Mim</h2>
+        <div class="about-content glass-effect">
+            <p class="about-text">
+                Desenvolvedor web em formação, com interesse em criar soluções digitais eficientes e funcionais.
+                Possui experiência em projetos que unem boa lógica de programação, design responsivo e usabilidade.
+            </p>
+            <p class="about-text">
+                Busca constantemente aprimoramento em novas tecnologias e desafios que contribuam para crescimento 
+                profissional e desenvolvimento de projetos de impacto.
+            </p>
+        </div>
+    </section>
+
+    <section id="projetos" class="projects-section">
+        <h2 class="section-title">Projetos</h2>
+        <div class="project-grid">
+            <div class="project-card glass-effect">
+                <div class="project-content">
+                    <h3>Projeto 1</h3>
+                    <p>Descrição detalhada do projeto com tecnologias utilizadas</p>
+                    <div class="tech-stack">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">MongoDB</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="btn project-btn"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        <a href="#" class="btn github-btn"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Adicione mais cards de projeto aqui -->
+        </div>
+    </section>
+
+    <section id="certificados" class="certificates-section">
+        <h2 class="section-title">Certificados</h2>
+        <div class="certificates-grid">
+            <!-- Certificado JavaScript -->
+            <a href="./certificates/Murilo Camilo Berce - Curso JavaScript com Node.js_ Criando sua primeira biblioteca - Alura.pdf" 
+               class="certificate-card glass-effect" 
+               data-certificate="cert1">
+                <i class="fas fa-award cert-icon"></i>
+                <h3>JavaScript com Node.js</h3>
+                <p>Alura</p>
+                <span class="view-cert">Ver Certificado</span>
+            </a>
+
+            <!-- Certificado Git e GitHub -->
+            <a href="./certificates/Murilo Camilo Berce - Curso Git e GitHub_ compartilhando e colaborando em projetos - Alura.pdf" 
+               class="certificate-card glass-effect" 
+               data-certificate="cert2">
+                <i class="fas fa-code-branch cert-icon"></i>
+                <h3>Git e GitHub</h3>
+                <p>Alura</p>
+                <span class="view-cert">Ver Certificado</span>
+            </a>
+
+            <!-- Certificado Programação -->
+            <a href="./certificates/Murilo Camilo Berce - Course Starting in Programming_ career and first steps - Alura.pdf" 
+               class="certificate-card glass-effect" 
+               data-certificate="cert3">
+                <i class="fas fa-code cert-icon"></i>
+                <h3>Iniciando em Programação</h3>
+                <p>Alura</p>
+                <span class="view-cert">Ver Certificado</span>
+            </a>
+        </div>
+    </section>
+
+    <footer class="footer glass-effect">
+        <div class="social-links">
+            <a href="https://github.com/mcberce" target="_blank" class="social-link" title="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/murilo-camilo-berce" target="_blank" class="social-link" title="LinkedIn">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="mailto:bercemurilo@gmail.com" class="social-link" title="Email">
+                <i class="fas fa-envelope"></i>
+            </a>
+        </div>
+        <div class="footer-text">
+            <p>Desenvolvido com <i class="fas fa-heart"></i> | &copy; 2023 Murilo Berce</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/certificates.js"></script>
+</body>
+</html>
