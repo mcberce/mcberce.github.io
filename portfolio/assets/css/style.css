@@ -640,3 +640,141 @@ html, body {
         transform: rotate(360deg);
     }
 }
+
+/* Ajustes de responsividade gerais */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden; /* garante sem scroll horizontal */
+}
+
+/* Responsividade do Hero e imagem */
+@media (max-width: 900px) {
+    .hero {
+        padding: 3.5rem 5%;
+    }
+
+    .hero-content {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .hero-text {
+        text-align: center;
+        order: 1;
+        padding: 0 1rem;
+    }
+
+    .hero-image {
+        order: 2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 0;
+    }
+
+    .image-container {
+        width: min(260px, 44vw);
+        height: min(260px, 44vw);
+        border-radius: 50%;
+        margin: 0.5rem auto;
+    }
+
+    .image-container::after {
+        /* reduzir brilho rotativo em mobile para performance */
+        animation-duration: 6s;
+        filter: blur(6px);
+    }
+
+    .name-highlight {
+        font-size: 2rem;
+    }
+
+    .typing-text {
+        font-size: 1rem;
+    }
+}
+
+/* Ajustes para telas bem pequenas */
+@media (max-width: 480px) {
+    .hero {
+        padding: 2.5rem 4%;
+    }
+
+    .image-container {
+        width: min(200px, 48vw);
+        height: min(200px, 48vw);
+    }
+
+    .name-highlight {
+        font-size: 1.6rem;
+        line-height: 1.1;
+    }
+
+    .typing-text {
+        font-size: 0.95rem;
+    }
+
+    .cta-buttons .btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Projetos e certificados - grade responsiva mais robusta */
+@media (max-width: 900px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        padding: 1rem;
+    }
+
+    .certificates-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .project-card, .certificate-card {
+        min-height: auto;
+    }
+}
+
+/* evitar overflow por nomes longos, textos ou links */
+.certificate-card, .project-card {
+    word-break: break-word;
+    hyphens: auto;
+}
+
+/* Nav e links: permitir quebra e centralizar em mobile */
+.nav-links {
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 600px) {
+    .nav-links {
+        gap: 0.6rem;
+        padding: 0.25rem 1rem;
+        font-size: 0.95rem;
+    }
+
+    .navbar {
+        padding: 0.6rem 4%;
+    }
+}
+
+/* garantir que elementos com posição z não cubram conteúdo importante */
+.hero-content,
+.about-content,
+.project-grid,
+.certificates-grid {
+    position: relative;
+    z-index: 1;
+}

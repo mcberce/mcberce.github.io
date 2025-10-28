@@ -225,3 +225,23 @@
     filter: drop-shadow(0 0 8px var(--primary));
     color: var(--primary);
 }
+
+/* otimizações das partículas em telas pequenas */
+@media (max-width: 900px) {
+    .particle {
+        filter: blur(0.8px);
+        opacity: 0.45;
+        /* reduz tamanho máximo em dispositivos menores */
+        width: calc(var(--size, 6px) * 0.85);
+        height: calc(var(--size, 6px) * 0.85);
+    }
+}
+
+@media (max-width: 480px) {
+    .particle {
+        /* ainda visíveis, mas menos intrusivas */
+        opacity: 0.35;
+        filter: blur(1.2px);
+        mix-blend-mode: normal; /* evita excesso de brilho sobre texto */
+    }
+}
