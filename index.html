@@ -86,36 +86,71 @@
 
     <section id="certificados" class="certificates-section">
         <h2 class="section-title">Certificados</h2>
-        <div class="certificates-grid">
-            <!-- Certificado JavaScript -->
-            <a href="./portfolio/certificates/Murilo Camilo Berce - Curso JavaScript com Node.js_ Criando sua primeira biblioteca - Alura.pdf" 
-               class="certificate-card glass-effect" 
-               data-certificate="cert1" target="_blank">
-                <i class="fas fa-award cert-icon"></i>
-                <h3>JavaScript com Node.js</h3>
-                <p>Alura</p>
-                <span class="view-cert">Ver Certificado</span>
-            </a>
+        <div class="certificates-intro">
+            <p>Explore minhas certificações e cursos concluídos</p>
+            <button class="btn primary-btn open-certificates-modal">
+                <i class="fas fa-award"></i> Ver Todos os Certificados
+            </button>
+        </div>
+    </section>
 
-            <!-- Certificado Git e GitHub -->
-            <a href="./portfolio/certificates/Murilo Camilo Berce - Curso Git e GitHub_ compartilhando e colaborando em projetos - Alura.pdf" 
-               class="certificate-card glass-effect" 
-               data-certificate="cert2" target="_blank">
-                <i class="fas fa-code-branch cert-icon"></i>
-                <h3>Git e GitHub</h3>
-                <p>Alura</p>
-                <span class="view-cert">Ver Certificado</span>
-            </a>
+    <!-- Modal de Certificados - Cole antes do fechamento de </body> -->
+    <div class="certificates-modal" id="certificatesModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Fechar">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <h2 class="modal-title">Meus Certificados</h2>
+            
+            <!-- Filtros por categoria -->
+            <div class="certificate-filters">
+                <button class="filter-btn active" data-category="all">
+                    Todos <span class="count"></span>
+                </button>
+                <button class="filter-btn" data-category="frontend">
+                    Frontend <span class="count"></span>
+                </button>
+                <button class="filter-btn" data-category="backend">
+                    Backend <span class="count"></span>
+                </button>
+                <button class="filter-btn" data-category="devops">
+                    DevOps <span class="count"></span>
+                </button>
+                <button class="filter-btn" data-category="tools">
+                    Ferramentas <span class="count"></span>
+                </button>
+            </div>
 
-            <!-- Certificado Programação -->
-            <a href="./portfolio/certificates/Murilo Camilo Berce - Course Starting in Programming_ career and first steps - Alura.pdf" 
-               class="certificate-card glass-effect" 
-               data-certificate="cert3" target="_blank">
-                <i class="fas fa-code cert-icon"></i>
-                <h3>Iniciando em Programação</h3>
-                <p>Alura</p>
-                <span class="view-cert">Ver Certificado</span>
-            </a>
+            <!-- Grid de certificados -->
+            <div class="certificates-grid-modal">
+                <!-- Certificados serão inseridos aqui via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Cole antes do footer -->
+    <section id="contato" class="contact-section">
+        <h2 class="section-title">Entre em Contato</h2>
+        <div class="contact-content glass-effect">
+            <p class="contact-text">
+                Estou disponível para novos projetos e oportunidades. Entre em contato através dos canais abaixo:
+            </p>
+            <div class="contact-methods">
+                <a href="mailto:bercemurilo@gmail.com" class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>bercemurilo@gmail.com</span>
+                </a>
+                <a href="https://github.com/mcberce" target="_blank" rel="noopener" class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <span>github.com/mcberce</span>
+                </a>
+                <a href="https://www.linkedin.com/in/murilo-camilo-berce" target="_blank" rel="noopener" class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <span>linkedin.com/in/murilo-camilo-berce</span>
+                </a>
+            </div>
         </div>
     </section>
 
