@@ -3,98 +3,391 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio | Desenvolvedor</title>
-    <!-- Ajustado caminhos para a pasta portfolio -->
+    <meta name="description" content="Portfólio de Murilo Camilo Berce - Desenvolvedor Full Stack especializado em JavaScript, Node.js e automação">
+    <meta name="keywords" content="desenvolvedor, full stack, javascript, node.js, portfolio">
+    <meta name="author" content="Murilo Camilo Berce">
+    <title>Murilo Berce | Desenvolvedor Full Stack</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="portfolio/assets/icons/favicon.svg">
+    
+    <!-- Estilos -->
     <link rel="stylesheet" href="./portfolio/assets/css/style.css">
     <link rel="stylesheet" href="./portfolio/assets/css/animations.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Space+Mono&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar glass-effect">
-        <div class="logo">
-            <span class="tech-text">&lt;/&gt;</span>
+    <!-- Background Animations -->
+    <div class="bg-animations">
+        <div class="bg-gradient-orb orb-1"></div>
+        <div class="bg-gradient-orb orb-2"></div>
+        <div class="bg-gradient-orb orb-3"></div>
+        <div class="bg-lines"></div>
+    </div>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <span class="logo-bracket">&lt;</span>
+                <span class="logo-text">MB</span>
+                <span class="logo-bracket">/&gt;</span>
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Início</a></li>
+                <li><a href="#sobre" class="nav-link">Sobre</a></li>
+                <li><a href="#habilidades" class="nav-link">Habilidades</a></li>
+                <li><a href="#projetos" class="nav-link">Projetos</a></li>
+                <li><a href="#certificados" class="nav-link">Certificados</a></li>
+                <li><a href="#contato" class="nav-link">Contato</a></li>
+            </ul>
+            
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span class="hamburger"></span>
+            </button>
         </div>
-        <ul class="nav-links">
-            <li><a href="#home" class="nav-link">Home</a></li>
-            <li><a href="#sobre" class="nav-link">Sobre</a></li>
-            <li><a href="#projetos" class="nav-link">Projetos</a></li>
-            <li><a href="#certificados" class="nav-link">Certificados</a></li>
-            <li><a href="#contato" class="nav-link">Contato</a></li>
-        </ul>
     </nav>
 
-    <section id="home" class="hero">
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
         <div class="hero-content">
             <div class="hero-text">
-                <h1 class="glitch" data-text="Olá, eu sou">Olá, eu sou</h1>
-                <h2 class="name-highlight">Murilo Berce</h2>
-                <div class="typing-container">
-                    <span class="typing-text">Desenvolvedor Full Stack</span>
+                <p class="hero-greeting">Olá, eu sou</p>
+                <div class="hero-title-container">
+                    <h1 class="hero-title">
+                        <span class="gradient-text">Murilo Camilo Berce</span>
+                    </h1>
+                    <div class="hero-profile">
+                        <img src="portfolio/images/profile.png" alt="Murilo Camilo Berce" class="profile-img">
+                    </div>
                 </div>
-                <div class="cta-buttons">
-                    <a href="#projetos" class="btn primary-btn">Ver Projetos</a>
-                    <a href="#contato" class="btn secondary-btn">Contato</a>
+                <p class="hero-subtitle typing-text">Desenvolvedor Full Stack</p>
+                <p class="hero-description">
+                    Transformando ideias em código, criando soluções inovadoras 
+                    com JavaScript, Node.js e automação de processos.
+                </p>
+                
+                <div class="hero-buttons">
+                    <a href="#projetos" class="btn primary-btn">
+                        <i class="fas fa-rocket"></i>
+                        Ver Projetos
+                    </a>
+                    <a href="#contato" class="btn secondary-btn">
+                        <i class="fas fa-envelope"></i>
+                        Entrar em Contato
+                    </a>
+                </div>
+                
+                <div class="hero-social">
+                    <a href="https://github.com/mcberce" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/murilo-camilo-berce" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:bercemurilo@gmail.com" class="social-icon" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
                 </div>
             </div>
+            
             <div class="hero-image">
-                <div class="image-container glowing-border">
-                    <!-- caminho ajustado para a pasta portfolio/images -->
-                    <img src="./portfolio/images/WhatsApp Image 2025-10-28 at 00.02.26.png" alt="Minha Foto">
+                <div class="image-container">
+                    <div class="floating-card card-1">
+                        <i class="fab fa-js"></i>
+                    </div>
+                    <div class="floating-card card-2">
+                        <i class="fab fa-node-js"></i>
+                    </div>
+                    <div class="floating-card card-3">
+                        <i class="fab fa-react"></i>
+                    </div>
+                    <div class="floating-card card-4">
+                        <i class="fab fa-git-alt"></i>
+                    </div>
                 </div>
             </div>
         </div>
+        
+        <a href="#sobre" class="scroll-down" aria-label="Rolar para baixo">
+            <i class="fas fa-chevron-down"></i>
+        </a>
     </section>
 
+    <!-- Sobre Section -->
     <section id="sobre" class="about-section">
         <h2 class="section-title">Sobre Mim</h2>
-        <div class="about-content glass-effect">
-            <p class="about-text">
-                Desenvolvedor web em formação, com interesse em criar soluções digitais eficientes e funcionais.
-                Possui experiência em projetos que unem boa lógica de programação, design responsivo e usabilidade.
-            </p>
-            <p class="about-text">
-                Busca constantemente aprimoramento em novas tecnologias e desafios que contribuam para crescimento 
-                profissional e desenvolvimento de projetos de impacto.
-            </p>
-        </div>
-    </section>
-
-    <section id="projetos" class="projects-section">
-        <h2 class="section-title">Projetos</h2>
-        <div class="project-grid">
-            <div class="project-card glass-effect">
-                <div class="project-content">
-                    <h3>Projeto 1</h3>
-                    <p>Descrição detalhada do projeto com tecnologias utilizadas</p>
-                    <div class="tech-stack">
-                        <span class="tech-tag">React</span>
-                        <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">MongoDB</span>
+        
+        <div class="about-content">
+            <div class="about-text glass-effect">
+                <p class="about-intro">
+                    Sou um desenvolvedor apaixonado por tecnologia e inovação, 
+                    com foco em criar soluções eficientes e escaláveis.
+                </p>
+                
+                <div class="about-details">
+                    <div class="detail-item">
+                        <i class="fas fa-code"></i>
+                        <div>
+                            <h3>Desenvolvimento Full Stack</h3>
+                            <p>Experiência em frontend e backend, criando aplicações completas com JavaScript/TypeScript, Node.js, React e bancos de dados modernos.</p>
+                        </div>
                     </div>
-                    <div class="project-links">
-                        <a href="#" class="btn project-btn"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                        <a href="#" class="btn github-btn"><i class="fab fa-github"></i> GitHub</a>
+                    
+                    <div class="detail-item">
+                        <i class="fas fa-robot"></i>
+                        <div>
+                            <h3>Automação de Processos</h3>
+                            <p>Especializado em automatizar tarefas repetitivas usando Bash, Python e ferramentas de CI/CD, aumentando a produtividade das equipes.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-item">
+                        <i class="fas fa-brain"></i>
+                        <div>
+                            <h3>Aprendizado Contínuo</h3>
+                            <p>Constantemente estudando novas tecnologias e melhores práticas, com mais de 14 certificações em desenvolvimento web e DevOps.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-project-diagram"></i>
+                        <h4>10+</h4>
+                        <p>Projetos Concluídos</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-certificate"></i>
+                        <h4>14</h4>
+                        <p>Certificações</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-code-branch"></i>
+                        <h4>500+</h4>
+                        <p>Commits no GitHub</p>
                     </div>
                 </div>
             </div>
-            <!-- Adicione mais cards de projeto aqui -->
         </div>
     </section>
 
+    <!-- Habilidades Section -->
+    <section id="habilidades" class="skills-section">
+        <h2 class="section-title">Habilidades Técnicas</h2>
+        
+        <div class="skills-container">
+            <!-- Frontend -->
+            <div class="skill-category glass-effect">
+                <div class="category-header">
+                    <i class="fas fa-palette"></i>
+                    <h3>Frontend</h3>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <i class="fab fa-html5"></i>
+                        <span>HTML5</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-css3-alt"></i>
+                        <span>CSS3</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-js"></i>
+                        <span>JavaScript</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 88%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fab fa-react"></i>
+                        <span>React</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Backend -->
+            <div class="skill-category glass-effect">
+                <div class="category-header">
+                    <i class="fas fa-server"></i>
+                    <h3>Backend</h3>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <i class="fab fa-node-js"></i>
+                        <span>Node.js</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 82%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-database"></i>
+                        <span>MongoDB</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-database"></i>
+                        <span>SQL</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-cube"></i>
+                        <span>OOP</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- DevOps -->
+            <div class="skill-category glass-effect">
+                <div class="category-header">
+                    <i class="fas fa-cogs"></i>
+                    <h3>DevOps & Tools</h3>
+                </div>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <i class="fab fa-git-alt"></i>
+                        <span>Git/GitHub</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-terminal"></i>
+                        <span>Bash</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 78%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-project-diagram"></i>
+                        <span>CI/CD</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 72%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <i class="fas fa-robot"></i>
+                        <span>Automação</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projetos Section -->
+    <section id="projetos" class="projects-section">
+        <h2 class="section-title">Projetos em Destaque</h2>
+        
+        <div class="projects-grid">
+            <article class="project-card glass-effect">
+                <div class="project-image">
+                    <img src="portfolio/images/project1.jpg" alt="Projeto 1" loading="lazy">
+                    <div class="project-overlay">
+                        <a href="#" class="project-link" target="_blank" rel="noopener">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        <a href="#" class="project-link" target="_blank" rel="noopener">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3>Sistema de Gerenciamento</h3>
+                    <p>Aplicação full stack para gerenciamento de processos com Node.js, React e MongoDB.</p>
+                    <div class="project-tags">
+                        <span class="tag">Node.js</span>
+                        <span class="tag">React</span>
+                        <span class="tag">MongoDB</span>
+                    </div>
+                </div>
+            </article>
+            
+            <article class="project-card glass-effect">
+                <div class="project-image">
+                    <img src="portfolio/images/project2.jpg" alt="Projeto 2" loading="lazy">
+                    <div class="project-overlay">
+                        <a href="#" class="project-link" target="_blank" rel="noopener">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        <a href="#" class="project-link" target="_blank" rel="noopener">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3>Automação de Deploy</h3>
+                    <p>Pipeline de CI/CD automatizado com testes, build e deploy usando GitHub Actions.</p>
+                    <div class="project-tags">
+                        <span class="tag">DevOps</span>
+                        <span class="tag">CI/CD</span>
+                        <span class="tag">Bash</span>
+                    </div>
+                </div>
+            </article>
+            
+            <article class="project-card glass-effect">
+                <div class="project-image">
+                    <img src="portfolio/images/project3.jpg" alt="Projeto 3" loading="lazy">
+                    <div class="project-overlay">
+                        <a href="#" class="project-link" target="_blank" rel="noopener">
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                        <a href="#" class="project-link" target="_blank" rel="noopener">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="project-content">
+                    <h3>API RESTful</h3>
+                    <p>API robusta com autenticação JWT, documentação Swagger e testes automatizados.</p>
+                    <div class="project-tags">
+                        <span class="tag">Node.js</span>
+                        <span class="tag">Express</span>
+                        <span class="tag">JWT</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- Certificados Section -->
     <section id="certificados" class="certificates-section">
         <h2 class="section-title">Certificados</h2>
         <div class="certificates-intro">
-            <p>Explore minhas certificações e cursos concluídos</p>
+            <p>Explore minhas certificações e cursos concluídos nas principais plataformas de tecnologia</p>
             <button class="btn primary-btn open-certificates-modal">
                 <i class="fas fa-award"></i> Ver Todos os Certificados
             </button>
         </div>
     </section>
 
-    <!-- Modal de Certificados - Cole antes do fechamento de </body> -->
+    <!-- Modal de Certificados -->
     <div class="certificates-modal" id="certificatesModal">
         <div class="modal-overlay"></div>
         <div class="modal-content">
@@ -104,7 +397,6 @@
             
             <h2 class="modal-title">Meus Certificados</h2>
             
-            <!-- Filtros por categoria -->
             <div class="certificate-filters">
                 <button class="filter-btn active" data-category="all">
                     Todos <span class="count"></span>
@@ -123,56 +415,60 @@
                 </button>
             </div>
 
-            <!-- Grid de certificados -->
-            <div class="certificates-grid-modal">
-                <!-- Certificados serão inseridos aqui via JS -->
-            </div>
+            <div class="certificates-grid-modal"></div>
         </div>
     </div>
 
-    <!-- Cole antes do footer -->
+    <!-- Contato Section -->
     <section id="contato" class="contact-section">
         <h2 class="section-title">Entre em Contato</h2>
         <div class="contact-content glass-effect">
             <p class="contact-text">
-                Estou disponível para novos projetos e oportunidades. Entre em contato através dos canais abaixo:
+                Estou disponível para novos projetos e oportunidades. Vamos conversar sobre como posso ajudar a transformar suas ideias em realidade!
             </p>
             <div class="contact-methods">
                 <a href="mailto:bercemurilo@gmail.com" class="contact-item">
                     <i class="fas fa-envelope"></i>
-                    <span>bercemurilo@gmail.com</span>
+                    <div>
+                        <span class="contact-label">Email</span>
+                        <span class="contact-value">bercemurilo@gmail.com</span>
+                    </div>
                 </a>
                 <a href="https://github.com/mcberce" target="_blank" rel="noopener" class="contact-item">
                     <i class="fab fa-github"></i>
-                    <span>github.com/mcberce</span>
+                    <div>
+                        <span class="contact-label">GitHub</span>
+                        <span class="contact-value">github.com/mcberce</span>
+                    </div>
                 </a>
                 <a href="https://www.linkedin.com/in/murilo-camilo-berce" target="_blank" rel="noopener" class="contact-item">
                     <i class="fab fa-linkedin"></i>
-                    <span>linkedin.com/in/murilo-camilo-berce</span>
+                    <div>
+                        <span class="contact-label">LinkedIn</span>
+                        <span class="contact-value">murilo-camilo-berce</span>
+                    </div>
                 </a>
             </div>
         </div>
     </section>
 
-    <footer class="footer glass-effect">
+    <!-- Footer -->
+    <footer class="footer">
         <div class="social-links">
-            <a href="https://github.com/mcberce" target="_blank" class="social-link" title="GitHub">
+            <a href="https://github.com/mcberce" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
                 <i class="fab fa-github"></i>
             </a>
-            <a href="https://www.linkedin.com/in/murilo-camilo-berce" target="_blank" class="social-link" title="LinkedIn">
+            <a href="https://www.linkedin.com/in/murilo-camilo-berce" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
                 <i class="fab fa-linkedin"></i>
             </a>
-            <a href="mailto:bercemurilo@gmail.com" class="social-link" title="Email">
+            <a href="mailto:bercemurilo@gmail.com" class="social-link" aria-label="Email">
                 <i class="fas fa-envelope"></i>
             </a>
         </div>
-        <div class="footer-text">
-            <p>Desenvolvido com <i class="fas fa-heart"></i> | &copy; 2023 Murilo Berce</p>
-        </div>
+        <p>&copy; 2025 Murilo Camilo Berce. Todos os direitos reservados.</p>
     </footer>
 
-    <!-- scripts ajustados para pasta portfolio -->
+    <!-- JavaScript -->
     <script src="./portfolio/assets/js/main.js"></script>
-    <script src="./portfolio/assets/js/certificates.js"></script>
 </body>
 </html>
