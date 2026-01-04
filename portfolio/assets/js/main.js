@@ -390,161 +390,44 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ========================================
-    // PARTÍCULAS DE FUNDO
+    // EFEITOS DE FUNDO SUTIS
     // ========================================
-    function createBackgroundEffects() {
-        const body = document.body;
-        
-        // Remove elementos antigos
-        document.querySelectorAll('.comet, .spark, .glow-ring, .floating-particle, .energy-wave, .bg-gradient-orb, .bg-lines, .bg-comet, .bg-spark, .bg-glow-ring').forEach(el => el.remove());
-
-        const isMobile = window.innerWidth < 768;
-        
-        // Adicionar orbs de gradiente (fundo)
-        if (!isMobile) {
-            const orbContainer = document.createElement('div');
-            orbContainer.className = 'bg-animations';
-            
-            const orb1 = document.createElement('div');
-            orb1.className = 'bg-gradient-orb orb-1';
-            orbContainer.appendChild(orb1);
-            
-            const orb2 = document.createElement('div');
-            orb2.className = 'bg-gradient-orb orb-2';
-            orbContainer.appendChild(orb2);
-            
-            const orb3 = document.createElement('div');
-            orb3.className = 'bg-gradient-orb orb-3';
-            orbContainer.appendChild(orb3);
-            
-            const lines = document.createElement('div');
-            lines.className = 'bg-lines';
-            orbContainer.appendChild(lines);
-            
-            body.appendChild(orbContainer);
-        }
-        
-        // Cometas (shooting stars)
-        const cometCount = isMobile ? 1 : 3;
-        for (let i = 0; i < cometCount; i++) {
-            const comet = document.createElement('div');
-            comet.className = 'comet';
-            
-            const duration = Math.random() * 3 + 5;
-            const delay = Math.random() * 12;
-            const distance = Math.random() * 400 + 600;
-            
-            comet.style.left = `${Math.random() * 60 + 10}%`;
-            comet.style.top = `${Math.random() * 40}%`;
-            comet.style.setProperty('--duration', `${duration}s`);
-            comet.style.setProperty('--delay', `${delay}s`);
-            comet.style.setProperty('--distance', `${distance}px`);
-            
-            body.appendChild(comet);
-        }
-        
-        // Faíscas
-        const sparkCount = isMobile ? 4 : 8;
-        for (let i = 0; i < sparkCount; i++) {
-            const spark = document.createElement('div');
-            spark.className = 'spark';
-            
-            const duration = Math.random() * 3 + 3;
-            const delay = Math.random() * 8;
-            
-            spark.style.left = `${Math.random() * 90 + 5}%`;
-            spark.style.top = `${Math.random() * 90 + 5}%`;
-            spark.style.setProperty('--duration', `${duration}s`);
-            spark.style.setProperty('--delay', `${delay}s`);
-            
-            body.appendChild(spark);
-        }
-        
-        // Anéis de luz
-        const ringCount = isMobile ? 2 : 4;
-        for (let i = 0; i < ringCount; i++) {
-            const ring = document.createElement('div');
-            ring.className = 'glow-ring';
-            
-            const duration = Math.random() * 4 + 4;
-            const delay = Math.random() * 10;
-            
-            ring.style.left = `${Math.random() * 80 + 10}%`;
-            ring.style.top = `${Math.random() * 80 + 10}%`;
-            ring.style.setProperty('--duration', `${duration}s`);
-            ring.style.setProperty('--delay', `${delay}s`);
-            
-            body.appendChild(ring);
-        }
-        
-        // Partículas flutuantes
-        const particleCount = isMobile ? 4 : 8;
-        for (let i = 0; i < particleCount; i++) {
-            const particle = document.createElement('div');
-            particle.className = 'floating-particle';
-            
-            const duration = Math.random() * 6 + 10;
-            const delay = Math.random() * 8;
-            const moveX = (Math.random() - 0.5) * 200;
-            const moveY = (Math.random() - 0.5) * 300;
-            
-            particle.style.left = `${Math.random() * 90 + 5}%`;
-            particle.style.top = `${Math.random() * 90 + 5}%`;
-            particle.style.setProperty('--duration', `${duration}s`);
-            particle.style.setProperty('--delay', `${delay}s`);
-            particle.style.setProperty('--moveX', `${moveX}px`);
-            particle.style.setProperty('--moveY', `${moveY}px`);
-            
-            body.appendChild(particle);
-        }
-        
-        // Ondas removidas para manter elegância
+    function initBackgroundEffects() {
+        // Os orbs já estão no HTML, apenas garantir animação suave
+        const orbs = document.querySelectorAll('.bg-gradient-orb');
+        orbs.forEach((orb, index) => {
+            // Adicionar variação sutil de movimento baseada na posição do mouse
+            document.addEventListener('mousemove', (e) => {
+                const x = (e.clientX / window.innerWidth - 0.5) * 20;
+                const y = (e.clientY / window.innerHeight - 0.5) * 20;
+                orb.style.transform = `translate(${x * (index + 1) * 0.5}px, ${y * (index + 1) * 0.5}px)`;
+            });
+        });
     }
 
-    // Cria partículas inicialmente
+    // Inicializa efeitos de fundo
     try { 
-        createBackgroundEffects(); 
+        initBackgroundEffects(); 
     } catch (e) {
-        console.warn('Erro ao criar efeitos de fundo:', e);
+        console.warn('Erro ao inicializar efeitos de fundo:', e);
     }
 
-    // Recria partículas ao redimensionar
-    let resizeTimer;
-    window.addEventListener('resize', () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => {
-            try { 
-                createBackgroundEffects(); 
-            } catch (e) {
-                console.warn('Erro ao recriar efeitos de fundo:', e);
-            }
-            onScroll();
-        }, 300);
-    });
-
-    // Recria partículas periodicamente
-    setInterval(() => {
-        try { 
-            createBackgroundEffects(); 
-        } catch (e) {
-            console.warn('Erro ao recriar efeitos de fundo:', e);
-        }
-    }, 40000);
-
     // ========================================
-    // FEEDBACK VISUAL EM CLIQUES
+    // FEEDBACK VISUAL EM CLIQUES (Sutil)
     // ========================================
     document.body.addEventListener('pointerdown', (e) => {
-        const btn = e.target.closest('.btn, .certificate-card-modal, .project-card, .contact-item, .social-icon, a');
+        const btn = e.target.closest('.btn, .social-icon');
         if (btn) {
-            btn.style.transform = 'scale(0.95)';
+            btn.style.transform = 'scale(0.97)';
+            btn.style.transition = 'transform 0.1s ease';
         }
     });
 
-    document.body.addEventListener('pointerup', () => {
-        document.querySelectorAll('.btn, .certificate-card-modal, .project-card, .contact-item, .social-icon, a').forEach(el => {
-            el.style.transform = '';
-        });
+    document.body.addEventListener('pointerup', (e) => {
+        const btn = e.target.closest('.btn, .social-icon');
+        if (btn) {
+            btn.style.transform = '';
+        }
     });
 
     // ========================================
@@ -565,64 +448,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 200);
     });
 
-    // ========================================
-    // CURSOR PERSONALIZADO (apenas desktop)
-    // ========================================
-    if (window.innerWidth > 768) {
-        const cursor = document.createElement('div');
-        cursor.className = 'custom-cursor';
-        cursor.style.cssText = `
-            position: fixed;
-            width: 20px;
-            height: 20px;
-            border: 2px solid var(--primary);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            transition: transform 0.2s ease, opacity 0.2s ease;
-            opacity: 0;
-        `;
-        document.body.appendChild(cursor);
 
-        let mouseX = 0, mouseY = 0;
-        let cursorX = 0, cursorY = 0;
-
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            cursor.style.opacity = '1';
-        });
-
-        document.addEventListener('mouseleave', () => {
-            cursor.style.opacity = '0';
-        });
-
-        // Smooth cursor animation
-        function updateCursor() {
-            const dx = mouseX - cursorX;
-            const dy = mouseY - cursorY;
-            
-            cursorX += dx * 0.15;
-            cursorY += dy * 0.15;
-            
-            cursor.style.left = cursorX + 'px';
-            cursor.style.top = cursorY + 'px';
-            
-            requestAnimationFrame(updateCursor);
-        }
-        updateCursor();
-
-        // Aumenta cursor ao passar em elementos clicáveis
-        document.addEventListener('mouseover', (e) => {
-            if (e.target.closest('a, button, .btn, input, textarea')) {
-                cursor.style.transform = 'scale(1.5)';
-                cursor.style.borderColor = '#52e8c4';
-            } else {
-                cursor.style.transform = 'scale(1)';
-                cursor.style.borderColor = 'var(--primary)';
-            }
-        });
-    }
 
     // ========================================
     // INICIALIZAÇÃO
