@@ -24,6 +24,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Loader Premium -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-content">
+            <div class="loader-logo">
+                <span class="loader-bracket">&lt;</span>
+                <span class="loader-text">MB</span>
+                <span class="loader-bracket">/&gt;</span>
+            </div>
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- Background Animations -->
     <div class="bg-animations">
         <div class="bg-gradient-orb orb-1"></div>
@@ -465,10 +479,21 @@
                 <i class="fas fa-envelope"></i>
             </a>
         </div>
-        <p>&copy; 2025 Murilo Camilo Berce. Todos os direitos reservados.</p>
+        <p>&copy; 2026 Murilo Camilo Berce. Criado com <span style="color: var(--accent)">❤</span> e muito código.</p>
     </footer>
 
     <!-- JavaScript -->
     <script src="./portfolio/assets/js/main.js"></script>
+    
+    <!-- Loader Script -->
+    <script>
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('pageLoader');
+            setTimeout(() => {
+                loader.classList.add('loaded');
+                setTimeout(() => loader.remove(), 600);
+            }, 800);
+        });
+    </script>
 </body>
 </html>
